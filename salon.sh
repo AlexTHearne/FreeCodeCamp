@@ -55,12 +55,12 @@ fi
 fi
 }
  SCHEDULER () {
-SCHEDULED=$($PSQL "INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME')")
- $SCHEDULED
+$PSQL "INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME')"
+
  }
  CREATE_CUSTOMER () {
-CREATED=($PSQL "INSERT INTO customers(name, phone) VALUES('$CUSTOMER_NAME','$CUSTOMER_PHONE')")
-$CREATED
+$PSQL "INSERT INTO customers(name, phone) VALUES('$CUSTOMER_NAME','$CUSTOMER_PHONE')"
+
  }
  EXIT () {
   if [[ $SERVICE_ID_SELECTED =~ [E] ]]
